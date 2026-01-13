@@ -360,10 +360,12 @@ export async function processPdfFiles(pdfPaths) {
   }
   
   // Guardar archivo Excel
-  const outputPath = path.join(__dirname, '../temp', `output-${Date.now()}.xlsx`);
+  // En Vercel/serverless, usar /tmp; en desarrollo local, usar temp/
+  const isVercel = process.env.VERCEL === '1' || process.env.AWS_LAMBDA_FUNCTION_NAME;
+  const tempDir = isVercel ? '/tmp' : path.join(__dirname, '../temp');
+  const outputPath = path.join(tempDir, `output-${Date.now()}.xlsx`);
   
   // Asegurar que el directorio temp existe
-  const tempDir = path.dirname(outputPath);
   if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir, { recursive: true });
   }
