@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesador de Notas de Crédito</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Procesador de Notas de Crédito</h1>
+            <p>Sube uno o varios archivos PDF para extraer datos de tablas</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <p class="upload-text">Arrastra y suelta archivos PDF aquí</p>
+                    <p class="upload-subtext">o haz clic para seleccionar</p>
+                    <input type="file" id="fileInput" accept=".pdf" multiple>
+                </div>
+            </div>
+
+            <div class="file-list" id="fileList"></div>
+
+            <div class="actions">
+                <button id="processBtn" class="btn btn-primary" disabled>
+                    <span class="btn-text">Procesar PDFs</span>
+                    <span class="btn-loader" style="display: none;">
+                        <span class="spinner"></span> Procesando...
+                    </span>
+                </button>
+                <button id="clearBtn" class="btn btn-secondary" style="display: none;">
+                    Limpiar
+                </button>
+            </div>
+
+            <div class="result" id="result"></div>
+
+            <div class="error" id="error"></div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
