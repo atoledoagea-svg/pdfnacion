@@ -103,10 +103,3 @@ export default async function handler(req, res) {
   }
 }
 
-// Deshabilitar el body parser
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
